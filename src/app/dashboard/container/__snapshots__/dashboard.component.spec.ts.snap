@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DashboardComponent should render the component 1`] = `
+<app-dashboard>
+  <div
+    class="dashboard container text-center"
+  >
+    <p>
+      dashboard works!
+    </p>
+    <app-button>
+      <button
+        class="btn btn-primary"
+        type="button"
+      >
+        Primary
+      </button>
+    </app-button>
+    <app-data>
+      <p>
+        data works!
+      </p>
+    </app-data>
+  </div>
+</app-dashboard>
+`;
