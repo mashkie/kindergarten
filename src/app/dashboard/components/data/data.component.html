@@ -1,1 +1,19 @@
-<p>data works!</p>
+<div class="data">
+  <table class="data__table">
+    <tr class="data__table__row">
+      <th class="data__table__row__header">Child Name</th>
+      <th class="data__table__row__header">Kindergarden Name</th>
+      <th class="data__table__row__header">Kindergarden Address</th>
+      <th class="data__table__row__header">Child Age</th>
+      <th class="data__table__row__header">Birthday of Child</th>
+    </tr>
+    <tr class="data__table__row" *ngFor="let child of children">
+      <td class="data__table__row__data">{{child.name}}</td>
+      <td class="data__table__row__data">{{(child.kindergartenId | kindergarden: kindergardens!)?.name}}</td>
+      <td class="data__table__row__data">{{(child.kindergartenId | kindergarden: kindergardens!)?.address}}</td>
+      <td class="data__table__row__data">{{child.birthDate | age}}</td>
+      <td class="data__table__row__data">{{child.birthDate | date}}</td>
+    </tr>
+  </table>
+
+</div>

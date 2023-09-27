@@ -1,5 +1,15 @@
 <div class="dashboard container text-center">
-  <p>dashboard works!</p>
-  <app-button></app-button>
-  <app-data></app-data>
+  <ng-container *ngIf="(children$ | async) as children; else loading">
+    <app-data [children]="children" [kindergardens]="(kindergardens$ | async)!"></app-data>
+  </ng-container>
+  <hr>
+  <ng-container *ngIf="(kindergardens$ | async) as kindergardens; else loading">
+    <app-add-data [kindergardens]="kindergardens" (emittedChild)="createChild($event)"></app-add-data>
+  </ng-container>
 </div>
+
+<ng-template #loading>
+  <div class="loading">
+    <p>loading...</p>
+  </div>
+</ng-template>

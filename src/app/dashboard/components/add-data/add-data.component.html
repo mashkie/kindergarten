@@ -1,0 +1,57 @@
+<form [formGroup]="childForm" (ngSubmit)="onSubmit()">
+  <div>
+    <h3>Register your child here</h3>
+    <label
+    >Child Name:
+      <input type="text" formControlName="name" placeholder="Name"/>
+    </label>
+    <div>
+      <label
+      >Child Age:
+        <input type="date" formControlName="birthDate"/>
+      </label>
+    </div>
+  </div>
+  <div>
+    <label
+    >Nationality:
+      <select formControlName="nationality">
+        <option value="" disabled>Please choose a nationality</option>
+        <option
+          *ngFor="let nation of Nationality | keyvalue"
+          [ngValue]="nation"
+        >
+          {{ nation.value }}
+        </option>
+      </select>
+    </label>
+  </div>
+  <div>
+    <label
+    >Kindergarden:
+      <select formControlName="kindergarden">
+        <option value="" disabled>Please choose a kindergarden</option>
+        <option
+          *ngFor="let kindergarden of kindergardens"
+          [ngValue]="kindergarden.id"
+        >
+          {{ kindergarden.name }}
+        </option>
+      </select>
+    </label>
+  </div>
+  <div formGroupName="parent">
+    <h3>Register your child here</h3>
+    <div>
+      <label> Parent Name:
+        <input formControlName="name" placeholder="Name" type="text"/>
+      </label>
+    </div>
+    <div>
+      <label> Email:
+        <input formControlName="mail" type="email" placeholder="Your Mail"/>
+      </label>
+    </div>
+  </div>
+  <button type="submit" [disabled]="!childForm.valid">Add a new child</button>
+</form>
